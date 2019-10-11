@@ -1,3 +1,11 @@
-## BasketBall Points Counter App.
+### BasketBall Points Counter App.
 
-### Made with React, Redux, Material UI.
+##### Stacks
+
+---
+
+- React
+
+- Redux
+
+- Material UI

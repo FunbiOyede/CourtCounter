@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
 class SecondTeam extends Component {
   state = {
     score: 0
@@ -27,7 +27,7 @@ class SecondTeam extends Component {
     return (
       <div>
         <div>
-          <h2>{this.props.team}</h2>
+          <h2>VISITOR:{this.props.team}</h2>
           <div>{this.state.score}</div>
           <div>
             <button onClick={this.ThreePointer}>+3 Points</button>

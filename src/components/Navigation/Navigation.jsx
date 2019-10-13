@@ -9,7 +9,7 @@ const Navigation = props => (
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6">Court Counter</Typography>
-        <Link to="/StartGame">Begin</Link>
+        <Link to="/StartGame">Proceed</Link>
       </Toolbar>
     </AppBar>
   </React.Fragment>

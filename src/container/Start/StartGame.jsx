@@ -4,7 +4,6 @@ import FirstTeam from "../Teams/FirstTeam";
 import SecondTeam from "../Teams/SecondTeam";
 import WithControls from "../../components/HOC/WithControls";
 import Controls from "../GameControls/Control";
-import Timer from "../TimeKeeper/Timer";
 class StartGame extends Component {
   state = {};
   fetchTeams = () => {

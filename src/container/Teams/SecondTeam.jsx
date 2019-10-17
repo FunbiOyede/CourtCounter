@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 class SecondTeam extends Component {
   state = {
     score: 0
@@ -28,10 +27,10 @@ class SecondTeam extends Component {
       <div>
         <div>
           <h2>VISITOR:{this.props.team}</h2>
-          <div>{this.props.score}</div>
+          <div>{this.state.score}</div>
           <div>
             <button onClick={this.ThreePointer}>+3 Points</button>
-            <button onClick={this.props.TwoPointer}>+2 Points</button>
+            <button onClick={this.TwoPointer}>+2 Points</button>
             <button onClick={this.FreeThrow}>Free Throw</button>
           </div>
         </div>
@@ -40,22 +39,4 @@ class SecondTeam extends Component {
   }
 }
 
-// second coming from combining reducer
-const storeState = state => {
-  return {
-    score: state.second.secondTeamScore
-  };
-};
-
-const dispatcher = dispatch => {
-  return {
-    TwoPointer: () =>
-      dispatch({
-        type: "TWO_POINTS"
-      })
-  };
-};
-export default connect(
-  storeState,
-  dispatcher
-)(SecondTeam);
+export default SecondTeam;

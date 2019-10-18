@@ -6,6 +6,7 @@ import HomePage from "../../container/HomePage/HomePage";
 const Router = props => (
   <Switch>
     <Route path="/StartGame" extact component={StartGame} />
+
     <Route path="/" exact component={HomePage} />
   </Switch>
 );

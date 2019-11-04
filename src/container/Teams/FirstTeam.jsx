@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { thisTypeAnnotation } from "@babel/types";
 
 class FirstTeam extends Component {
   state = {
-    score: 0
+    score: 0,
+    constantScore: 10
   };
   ThreePointer = e => {
     e.preventDefault();
@@ -24,6 +26,8 @@ class FirstTeam extends Component {
     });
   };
   render() {
+    if (this.state.score === this.constantScore.state) {
+    }
     return (
       <div>
         <div>

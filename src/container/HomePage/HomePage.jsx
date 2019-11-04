@@ -5,7 +5,8 @@ class HomePage extends Component {
   state = {
     firstTeam: "",
     secondTeam: "",
-    isAddedToStorage: false
+    isAddedToStorage: false,
+    date: JSON.stringify(new Date())
   };
   getTeamA = e => {
     let { value } = e.target;
@@ -23,7 +24,11 @@ class HomePage extends Component {
 
   AddToStorage = e => {
     e.preventDefault();
-    localStorage.setItem("Teams", JSON.stringify(this.state));
+    const TeamInfo = {
+      firstTeam: this.state.firstTeam,
+      secondTeam: this.state.secondTeam
+    };
+    localStorage.setItem("Teams", JSON.stringify(TeamInfo));
     this.setState({
       isAddedToStorage: true
     });
@@ -34,6 +39,7 @@ class HomePage extends Component {
         {/* redirecting to start game */}
         {this.state.isAddedToStorage ? <Redirect to="/StartGame" /> : null}
         <Navigation />
+
         <form>
           <input type="text" placeholder="team A" onChange={this.getTeamA} />
           <input type="text" placeholder="team B" onChange={this.getTeamB} />

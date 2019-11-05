@@ -2,20 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { createStore, combineReducers } from "redux";
-import FirstTeam from "./Store/Reducer/FirstTeamReducer";
-import SecondTeam from "./Store/Reducer/SecondTeamReducer";
+import { Store } from "./Store/store.config";
+
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-const MainReducer = combineReducers({
-  first: FirstTeam,
-  second: SecondTeam
-});
-const store = createStore(MainReducer);
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={Store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>

@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+
 class SecondTeam extends Component {
   state = {
-    score: 0,
-    scores: []
+    score: 0
   };
   ThreePointer = e => {
     e.preventDefault();
     this.setState({
       score: this.state.score + 3
     });
-    this.SaveToStorage(this.state.score);
   };
 
   TwoPointer = e => {
@@ -18,19 +17,11 @@ class SecondTeam extends Component {
     this.setState({
       score: this.state.score + 2
     });
-    this.SaveToStorage(this.state.score);
   };
   FreeThrow = e => {
     e.preventDefault();
     this.setState({
       score: this.state.score + 1
-    });
-    this.SaveToStorage(this.state.score);
-  };
-  SaveToStorage = score => {
-    const newScore = [...this.state.scores, score];
-    this.setState({
-      scores: newScore
     });
   };
 

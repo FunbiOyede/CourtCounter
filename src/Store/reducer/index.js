@@ -7,7 +7,8 @@ const Names = {
   isError: false,
   minutes: 30,
   seconds: 0,
-  teams: {}
+  teams: {},
+  isFetch: false
 };
 
 export const TeamNames = (state = Names, action) => {
@@ -25,7 +26,6 @@ export const TeamNames = (state = Names, action) => {
   }
 
   if (action.type === ActionTypes.SUCCESS) {
-    console.log(action.value);
     return {
       ...state,
       isPosted: true
@@ -39,12 +39,17 @@ export const TeamNames = (state = Names, action) => {
     };
   }
   if (action.type === ActionTypes.FETCH_SUCCESS) {
-    console.log(action.val);
     return {
       ...state,
       teams: { ...action.val }
     };
   }
 
+  if (action.type === ActionTypes.FETCH_FAILURE) {
+    return {
+      ...state,
+      isFetch: true
+    };
+  }
   return state;
 };

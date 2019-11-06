@@ -1,7 +1,5 @@
 langauge: node_js
-
-node_js:
-  - 12.6.0
+node_js: 12.6.0
 
 cache: yarn
 

@@ -47,3 +47,35 @@ export const saveTeamName = (fname, sname) => {
       });
   };
 };
+
+export const fetchSuccess = value => {
+  let TeamValues = value.data;
+  let teamValues = Object.values(TeamValues);
+  const team = teamValues[0];
+  return {
+    type: ActionTypes.FETCH_SUCCESS,
+    val: team
+  };
+};
+
+export const fetchFailure = () => {
+  return {
+    type: ActionTypes.FETCH_FAILURE
+  };
+};
+
+/**
+ * fetchTeams responsible for fetching team names
+ */
+
+export const fetchTeams = () => {
+  return dispatch => {
+    Axios.get("/teams.json")
+      .then(response => {
+        dispatch(fetchSuccess(response));
+      })
+      .catch(err => {
+        dispatch(fetchFailure());
+      });
+  };
+};

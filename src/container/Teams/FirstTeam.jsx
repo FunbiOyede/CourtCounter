@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 class FirstTeam extends Component {
   state = {
     score: 0,
@@ -39,5 +40,9 @@ class FirstTeam extends Component {
     );
   }
 }
+
+FirstTeam.propTypes = {
+  team: PropTypes.string
+};
 
 export default FirstTeam;

@@ -4,7 +4,10 @@ const Names = {
   firstTeamName: "",
   secondTeamName: "",
   isPosted: false,
-  isError: false
+  isError: false,
+  minutes: 30,
+  seconds: 0,
+  teams: {}
 };
 
 export const TeamNames = (state = Names, action) => {
@@ -35,5 +38,13 @@ export const TeamNames = (state = Names, action) => {
       isError: true
     };
   }
+  if (action.type === ActionTypes.FETCH_SUCCESS) {
+    console.log(action.val);
+    return {
+      ...state,
+      teams: { ...action.val }
+    };
+  }
+
   return state;
 };

@@ -7,28 +7,28 @@ class Timer extends Component {
   };
 
   /**
-   * starts the timer
+   * This function is responsible for the timer
    */
   StartTimer = () => {
-    this.interval = setInterval(() => {
-      const { minutes, seconds } = this.state;
-      if (seconds > 0) {
-        this.setState(({ seconds }) => ({
-          seconds: seconds - 1
-        }));
+    const interval = setInterval(() => {
+      if (this.state.seconds > 0) {
+        this.setState({
+          seconds: this.state.seconds - 1
+        });
       }
-      if (seconds === 0) {
-        if (minutes === 0) {
-          clearInterval(this.interval);
+      if (this.state.seconds === 0) {
+        if (this.state.minutes === 0) {
+          clearInterval(interval);
         } else {
-          this.setState(({ minutes }) => ({
-            minutes: minutes - 1,
+          this.setState({
+            minutes: this.state.minutes - 1,
             seconds: 59
-          }));
+          });
         }
       }
     }, 1000);
   };
+
   render() {
     const { minutes, seconds } = this.state;
     return (

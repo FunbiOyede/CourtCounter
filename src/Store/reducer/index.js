@@ -1,4 +1,5 @@
 import * as ActionTypes from "../Actions/ActionType";
+import { updateObjects } from "../../utils/index";
 
 const Names = {
   firstTeamName: "",
@@ -13,43 +14,26 @@ const Names = {
 
 export const TeamNames = (state = Names, action) => {
   if (action.type === ActionTypes.GET_FIRST_TEAM_NAME) {
-    return {
-      ...state,
-      firstTeamName: action.teamName
-    };
+    return updateObjects(state, { firstTeamName: action.teamName });
   }
   if (action.type === ActionTypes.GET_SECOND_TEAM_NAME) {
-    return {
-      ...state,
-      secondTeamName: action.teamName
-    };
+    return updateObjects(state, { secondTeamName: action.teamName });
   }
 
-  if (action.type === ActionTypes.SUCCESS) {
-    return {
-      ...state,
-      isPosted: true
-    };
+  if (action.type === ActionTypes.POST_DATA) {
+    return updateObjects(state, { isPosted: true });
   }
 
   if (action.type === ActionTypes.FAILURE) {
-    return {
-      ...state,
-      isError: true
-    };
+    return updateObjects(state, { isError: true });
   }
   if (action.type === ActionTypes.FETCH_SUCCESS) {
-    return {
-      ...state,
-      teams: { ...action.val }
-    };
+    const teams = { ...action.val };
+    return updateObjects(state, { teams });
   }
 
   if (action.type === ActionTypes.FETCH_FAILURE) {
-    return {
-      ...state,
-      isFetch: true
-    };
+    return updateObjects(state, { isFetch: true });
   }
   return state;
 };

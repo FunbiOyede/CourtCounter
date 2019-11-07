@@ -11,13 +11,14 @@ class StartGame extends Component {
   state = {
     isLoad: true
   };
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     setTimeout(() => {
       this.setState({
         isLoad: false
       });
     }, 2000);
   }
+
   componentDidMount() {
     this.props.FetchTeamsNames();
   }
@@ -32,7 +33,7 @@ class StartGame extends Component {
           <div>
             {this.props.isFetch ? (
               <p style={{ color: "red" }}>
-                unable to fetch team name connect to internet
+                Unable to fetch team names. Please connect to the internet
               </p>
             ) : null}
           </div>

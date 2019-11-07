@@ -1,12 +1,20 @@
 import * as ActionTypes from "./ActionType";
 import Axios from "../../axios.config";
 
+/**
+ *
+ * @param {string} value
+ */
 export const getFirstTeamName = value => {
   return {
     type: ActionTypes.GET_FIRST_TEAM_NAME,
     teamName: value
   };
 };
+/**
+ *
+ * @param {string} value
+ */
 
 export const getSecondTeamName = value => {
   return {
@@ -15,10 +23,9 @@ export const getSecondTeamName = value => {
   };
 };
 
-export const success = response => {
+export const post_data = () => {
   return {
-    type: ActionTypes.SUCCESS,
-    value: response
+    type: ActionTypes.POST_DATA
   };
 };
 
@@ -40,7 +47,7 @@ export const saveTeamName = (fname, sname) => {
       secondTeamName: sname
     })
       .then(response => {
-        dispatch(success(response));
+        dispatch(post_data());
       })
       .catch(error => {
         dispatch(failed());
@@ -51,7 +58,7 @@ export const saveTeamName = (fname, sname) => {
 export const fetchSuccess = value => {
   let TeamValues = value.data;
   let teamValues = Object.values(TeamValues);
-  const team = teamValues[0];
+  let [team] = teamValues;
   return {
     type: ActionTypes.FETCH_SUCCESS,
     val: team
@@ -65,7 +72,7 @@ export const fetchFailure = () => {
 };
 
 /**
- * fetchTeams responsible for fetching team names
+ * @function fetchTeams fetches team names from a remote database
  */
 
 export const fetchTeams = () => {

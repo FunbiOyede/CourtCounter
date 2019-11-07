@@ -6,3 +6,4 @@ export const GET_SECOND_TEAM_NAME = "GET_SECOND_TEAM_NAME";
 export const FETCH_TEAMS = "FETCH_TEAMS";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAILURE = "FETCH_FAILURE";
+export const POST_DATA = "POST_DATA";

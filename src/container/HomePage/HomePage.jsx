@@ -10,42 +10,9 @@ import {
 } from "../../Store/Actions/ActionsCreators";
 
 class HomePage extends Component {
-  state = {
-    firstTeam: "",
-    secondTeam: "",
-    isAddedToStorage: false,
-    date: JSON.stringify(new Date())
-  };
-  getTeamA = e => {
-    let { value } = e.target;
-    this.setState({
-      firstTeam: value
-    });
-  };
-
-  getTeamB = e => {
-    let { value } = e.target;
-    this.setState({
-      secondTeam: value
-    });
-  };
-
-  AddToStorage = e => {
-    e.preventDefault();
-    const TeamInfo = {
-      firstTeam: this.state.firstTeam,
-      secondTeam: this.state.secondTeam
-    };
-    localStorage.setItem("Teams", JSON.stringify(TeamInfo));
-    this.setState({
-      isAddedToStorage: true
-    });
-  };
   render() {
-    return (
+    let RedirectToStartGame = (
       <div>
-        {/* redirecting to start game */}
-        {this.props.isPosted ? <Redirect to="/StartGame" /> : null}
         <Navigation />
 
         <form>
@@ -81,6 +48,10 @@ class HomePage extends Component {
         </div>
       </div>
     );
+    if (this.props.isPosted) {
+      RedirectToStartGame = <Redirect to="/StartGame" />;
+    }
+    return RedirectToStartGame;
   }
 }
 

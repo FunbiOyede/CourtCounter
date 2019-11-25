@@ -35,5 +35,6 @@ export const TeamNames = (state = Names, action) => {
   if (action.type === ActionTypes.FETCH_FAILURE) {
     return updateObjects(state, { isFetch: true });
   }
+
   return state;
 };

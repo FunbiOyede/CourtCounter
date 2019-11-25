@@ -25,16 +25,26 @@ class SecondTeam extends Component {
     });
   };
 
+  Reset = e => {
+    e.preventDefault();
+    this.setState({
+      score: 0
+    });
+  };
+
   render() {
     return (
       <div>
-        <div>
-          <h2>VISITOR:{this.props.team}</h2>
-          <div>{this.state.score}</div>
+        <div style={style}>
+          <h2>{this.props.team}</h2>
+          <div style={{ fontSize: "40px", textAlign: "center" }}>
+            {this.state.score}
+          </div>
           <div>
             <button onClick={this.ThreePointer}>+3 Points</button>
             <button onClick={this.TwoPointer}>+2 Points</button>
             <button onClick={this.FreeThrow}>Free Throw</button>
+            <button onClick={this.Reset}>Reset</button>
           </div>
         </div>
       </div>
@@ -44,5 +54,14 @@ class SecondTeam extends Component {
 
 SecondTeam.propTypes = {
   team: PropTypes.string
+};
+
+const style = {
+  background: "yellow",
+  height: "20vh",
+  width: "40%",
+  margin: "10px 12px",
+  padding: "20px",
+  float: "right"
 };
 export default SecondTeam;

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Navigation from "../../components/Navigation/Navigation";
 import { Redirect } from "react-router-dom";
-
+import TextField from "@material-ui/core/TextField";
+import Container from "@material-ui/core/Container";
 import { connect } from "react-redux";
+import classes from "./HomePage.module.css";
 import {
   getFirstTeamName,
   saveTeamName,
@@ -15,37 +17,56 @@ class HomePage extends Component {
       <div>
         <Navigation />
 
-        <form>
-          <input
-            type="text"
-            placeholder="team A"
-            onChange={e => this.props.getFirstTeamName(e.target.value)}
-          />
-          <input
+        <Container maxWidth="sm" style={{ marginTop: "7%" }}>
+          <form>
+            <TextField
+              style={{ margin: 8 }}
+              type="text"
+              placeholder="team A"
+              onChange={e => this.props.getFirstTeamName(e.target.value)}
+              fullWidth
+              margin="normal"
+              InputLabelProps={{
+                shrink: true
+              }}
+              variant="filled"
+            />
+          </form>
+          <button
+            className={classes.saveTeams}
+            onClick={() =>
+              this.props.saveTeamName(
+                this.props.FirstTeamName,
+                this.props.SecondTeamName
+              )
+            }
+          >
+            Add
+          </button>
+
+          <TextField
+            style={{ margin: 8 }}
             type="text"
             placeholder="team B"
             onChange={e => this.props.getSecondTeamName(e.target.value)}
+            fullWidth
+            margin="normal"
+            InputLabelProps={{
+              shrink: true
+            }}
+            variant="filled"
           />
-        </form>
-        <button
-          onClick={() =>
-            this.props.saveTeamName(
-              this.props.FirstTeamName,
-              this.props.SecondTeamName
-            )
-          }
-        >
-          Add
-        </button>
-        <div>
+
           <div>
-            {this.props.isError ? (
-              <p style={{ color: "red" }}>
-                unable to save data. Connect to the internet
-              </p>
-            ) : null}
+            <div>
+              {this.props.isError ? (
+                <p style={{ color: "red", textAlign: "center" }}>
+                  unable to save data. Connect to the internet
+                </p>
+              ) : null}
+            </div>
           </div>
-        </div>
+        </Container>
       </div>
     );
     if (this.props.isPosted) {
@@ -70,7 +91,4 @@ const mapDispatchToProps = dispatch => {
     saveTeamName: (fname, sname) => dispatch(saveTeamName(fname, sname))
   };
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

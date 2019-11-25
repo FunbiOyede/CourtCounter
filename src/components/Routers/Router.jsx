@@ -1,12 +1,14 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import StartGame from "../../container/Start/StartGame";
-import HomePage from "../../container/HomePage/HomePage";
 
+const startGame = React.lazy(() => import("../../container/Start/StartGame"));
+const HomePage = React.lazy(() => import("../../container/HomePage/HomePage"));
 const Router = props => (
   <Switch>
-    <Route path="/StartGame" extact component={StartGame} />
-    <Route path="/" exact component={HomePage} />
+    <React.Suspense fallback={<p>Please wait</p>}>
+      <Route path="/StartGame" extact component={startGame} />
+      <Route path="/" exact component={HomePage} />
+    </React.Suspense>
   </Switch>
 );
 

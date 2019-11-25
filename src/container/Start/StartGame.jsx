@@ -32,7 +32,7 @@ class StartGame extends Component {
         <div>
           <div>
             {this.props.isFetch ? (
-              <p style={{ color: "red" }}>
+              <p style={{ color: "red", textAlign: "center" }}>
                 Unable to fetch team names. Please connect to the internet
               </p>
             ) : null}
@@ -66,7 +66,4 @@ const dispatchStateToProps = dispatch => {
     FetchTeamsNames: () => dispatch(ActionCreators.fetchTeams())
   };
 };
-export default connect(
-  mapStateToProps,
-  dispatchStateToProps
-)(StartGame);
+export default connect(mapStateToProps, dispatchStateToProps)(StartGame);

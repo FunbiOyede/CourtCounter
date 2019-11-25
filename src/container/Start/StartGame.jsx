@@ -6,6 +6,7 @@ import Timer from "../../components/Timer/Timer";
 import * as ActionCreators from "../../Store/Actions/ActionsCreators";
 import Loader from "../../components/Loader/Loader";
 import { connect } from "react-redux";
+import Grid from "@material-ui/core/Grid";
 
 class StartGame extends Component {
   state = {
@@ -38,17 +39,22 @@ class StartGame extends Component {
             ) : null}
           </div>
           <FirstTeam team={this.props.Teams.firstTeamName} />
+          {/* <Timer /> */}
           <SecondTeam team={this.props.Teams.secondTeamName} />
-          <div>
-            <Timer />
-          </div>
         </div>
       );
     }
     return (
       <div>
         <Navigation />
-        {loader}
+        <Grid
+          container
+          direction="column"
+          justify="space-evenly"
+          alignItems="center"
+        >
+          {loader}
+        </Grid>
       </div>
     );
   }

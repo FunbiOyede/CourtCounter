@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Button from "@material-ui/core/Button";
 class Timer extends Component {
   state = {
     minutes: 30,
@@ -33,7 +33,19 @@ class Timer extends Component {
     const { minutes, seconds } = this.state;
     return (
       <div>
-        <button onClick={this.StartTimer}>Start</button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={this.StartTimer}
+          style={{
+            background: "white",
+            color: "#3f51b5",
+            margin: "10px"
+          }}
+        >
+          Start
+        </Button>
+
         <h1>
           {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
         </h1>

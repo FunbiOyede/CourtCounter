@@ -1,5 +1,5 @@
 import { createStore, compose, applyMiddleware } from "redux";
-import { TeamNames } from "../Store/reducer/index";
+import TeamNames from "../Store/reducer/index";
 import thunk from "redux-thunk";
 // for dev tools
 const composeEnhancers =

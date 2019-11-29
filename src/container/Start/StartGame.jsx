@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import Navigation from "../../components/Navigation/Navigation";
 import FirstTeam from "../Teams/FirstTeam";
 import SecondTeam from "../Teams/SecondTeam";
-import Timer from "../../components/Timer/Timer";
+
 import * as ActionCreators from "../../Store/Actions/ActionsCreators";
 import Loader from "../../components/Loader/Loader";
 import { connect } from "react-redux";
 import Grid from "@material-ui/core/Grid";
 
-class StartGame extends Component {
+export class StartGame extends Component {
   state = {
     isLoad: true
   };

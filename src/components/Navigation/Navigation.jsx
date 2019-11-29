@@ -4,13 +4,13 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 
 const Navigation = props => (
-  <React.Fragment>
+  <div>
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6">Court Counter</Typography>
       </Toolbar>
     </AppBar>
-  </React.Fragment>
+  </div>
 );
 
 export default Navigation;

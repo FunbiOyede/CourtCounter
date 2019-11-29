@@ -12,7 +12,7 @@ const Names = {
   isFetch: false
 };
 
-export const TeamNames = (state = Names, action) => {
+const TeamNames = (state = Names, action) => {
   if (action.type === ActionTypes.GET_FIRST_TEAM_NAME) {
     return updateObjects(state, { firstTeamName: action.teamName });
   }
@@ -38,3 +38,5 @@ export const TeamNames = (state = Names, action) => {
 
   return state;
 };
+
+export default TeamNames;

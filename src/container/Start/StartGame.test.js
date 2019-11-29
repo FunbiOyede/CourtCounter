@@ -5,7 +5,7 @@ import { StartGame } from "./StartGame";
 import Loader from "../../components/Loader/Loader";
 
 configure({ adapter: new Adapter() });
-describe("<StartGam/>", () => {
+describe("<StartGame/>", () => {
   let wrapper;
   beforeEach(() => {
     wrapper = shallow(<StartGame FetchTeamsNames={() => {}} />);
